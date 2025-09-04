@@ -12,8 +12,11 @@ foreach ($setss as $set)
 {
     echo  $set->setId;
     echo  $set->setName;
-    echo $set->setDescription;
+    //echo $set->setDescription;
+    echo $set->setThemeId;
+    echo "<br>";
 }
+
 
 
 
