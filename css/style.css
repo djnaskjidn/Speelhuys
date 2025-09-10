@@ -1,3 +1,16 @@
 #body {
     background-color: rgb(72, 136, 127);
 }
+
+#button {
+    background: color #884851;
+    color: white;
+}
+
+#card-body {
+    background-color: #7d9fcc;
+}
+
+#card-text {
+    color: black;
+}

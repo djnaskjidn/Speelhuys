@@ -79,9 +79,9 @@ $ietss = Sets::hoi($hamburger);
               <div class="card h-100 d-flex flex-column" style="width: 18rem;">
                 <img src="images/sets/<?= $set->setImage; ?>" class="card-img-top img-fluid" style="max-height: 250px; object-fit: cover;">
 
-                <div class="card-body d-flex flex-column">
-                  <p class="card-text flex-grow-1"><?= $set->setName; ?></p>
-                  <p class="card-text flex-grow-1">€<?= $set->setPrice; ?></p>
+                <div id="card-body" class="card-body d-flex flex-column">
+                  <p id="card-text" class="card-text flex-grow-1"><?= $set->setName; ?></p>
+                  <p id="card-text" class="card-text flex-grow-1">€<?= $set->setPrice; ?></p>
                 </div>
               </div>
             </a>
