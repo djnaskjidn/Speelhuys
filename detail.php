@@ -2,9 +2,9 @@
 
 include "./classes/database.php";
 include "./classes/sets.php";
-/*include "./classes/brands.php";
-include "./classes/themes.php";
-*/
+include "./classes/brands.php";
+//include "./classes/themes.php";
+
 
 
 $hoi = $_GET["id"];
@@ -12,6 +12,15 @@ $hoi = $_GET["id"];
 
 $setje = Sets::hallo($hoi);
 
+
+echo $hoi;
+
+
+$brand = Brands::ideetjepakken($setje->setBrandId);
+
+
+
+echo $setje->setBrandId;
 
 
 ?>
@@ -55,7 +64,7 @@ $setje = Sets::hallo($hoi);
 
       <div class="col-5">
 
-
+       <h1> <?=  $brand->brand_name; ?> </h1>
 
       </div>
 
