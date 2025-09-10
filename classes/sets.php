@@ -23,14 +23,8 @@ class Sets
     {
         
         $conn = Database::start();
-
-
-        
-
-
-
         // voorbeeld
-        $query = "SELECT * FROM sets LIMIT 10 OFFSET 0;";
+        $query = "SELECT * FROM sets ";
         $resultaat = $conn->query($query);
 
         $setss =[];
@@ -66,15 +60,16 @@ class Sets
 
 
 
+
+
+
+
+    
+
     public static function hoi($hamburger)
     {
         
         $conn = Database::start();
-
-
-        
-
-
 
         // voorbeeld
         $query = "SELECT * FROM sets LIMIT 10 OFFSET $hamburger";
@@ -107,6 +102,87 @@ class Sets
         }
 
 
+
+
+    }
+
+
+    public static function hallo($hoi)
+    {
+        $conn = Database::start();
+
+        $query = "SELECT * FROM sets WHERE set_id = $hoi";
+        $resultaat = $conn->query($query);
+
+        $set = null;
+
+        while ($row = $resultaat->fetch_assoc()) 
+            {
+                $set = new Sets();
+
+                $set->setName = $row['set_name'];
+                $set->setDescription = $row['set_description'];
+                $set->setBrandId = $row['set_brand_id'];
+                $set->setThemeId = $row['set_theme_id'];
+                $set->setImage = $row['set_image'];
+                $set->setPrice = $row['set_price'];
+                $set->setAge = $row['set_age'];
+                $set->steentjes = $row['set_pieces'];
+                $set->setStock = $row['set_stock'];
+
+
+                $conn->close(); // sluit de verbinding
+
+                return $set;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+            }
 
 
     }

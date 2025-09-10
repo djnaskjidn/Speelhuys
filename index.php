@@ -1,6 +1,12 @@
 <?php
 
 
+if (isset($_GET["id"])) {
+  $geenIdee = $_GET["id"];
+} else {
+  $geenIdee = 1;
+}
+
 
 include "./classes/database.php";
 include "./classes/sets.php";
@@ -20,17 +26,19 @@ foreach ($setss as $set) {
 
 $pagina = $totalitems / $delen;
 
-echo (round($pagina));
 
-$hamburger = 0;
+
+
+if ($geenIdee == 1) {
+  $hamburger = 0;
+} else {
+  $hamburger = $geenIdee * 10 - 10;
+}
+
+
 
 $ietss = Sets::hoi($hamburger);
-foreach ($ietss as $set) {
-  echo  $set->setName;
 
-  
-  echo "<br>";
-}
 
 
 
@@ -68,13 +76,13 @@ foreach ($ietss as $set) {
 
 
             <a href="detail.php?id=<?= $set->setId; ?>">
-              <div class="card" style="width: 18rem;">
-                <img src="images/sets/<?= $set->setImage;  ?>" class="card-img-top" alt="...">
-                
-                <div class="card-body">
-                  <p class="card-text"><?= $set->setName; ?></p>
-                </div>
+              <div class="card h-100 d-flex flex-column" style="width: 18rem;">
+                <img src="images/sets/<?= $set->setImage; ?>" class="card-img-top img-fluid" style="max-height: 250px; object-fit: cover;">
 
+                <div class="card-body d-flex flex-column">
+                  <p class="card-text flex-grow-1"><?= $set->setName; ?></p>
+                  <p class="card-text flex-grow-1">€<?= $set->setPrice; ?></p>
+                </div>
               </div>
             </a>
 
@@ -103,14 +111,15 @@ foreach ($ietss as $set) {
 
   <nav aria-label="Page navigation example">
     <ul class="pagination justify-content-center">
-      <li class="page-item disabled">
-        <a class="page-link" href="#" tabindex="-1">Previous</a>
-      </li>
-      <li class="page-item"><a class="page-link" href="#">1</a></li>
-      <li class="page-item"><a class="page-link" href="#">2</a></li>
-      <li class="page-item"><a class="page-link" href="#">3</a></li>
-      <li class="page-item">
-        <a class="page-link" href="#">Next</a>
+
+      <?php
+      for ($i = 1; $i <= round($pagina); $i++) : ?>
+
+        <li class="page-item"><a class="page-link" href="index.php?id=<?= $i; ?>"><?php echo $i; ?> </a></li>
+
+      <?php endfor ?>
+
+
       </li>
     </ul>
   </nav>
