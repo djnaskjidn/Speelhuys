@@ -64,8 +64,93 @@ $ietss = Sets::hoi($hamburger);
 </head>
 
 <body id="body">
+  <!-- offcanvas filter tab -->
+  <!-- prijs slider moet nog toegevoegd worden + links/hrefs naar de juiste pagina's -->
 
+  <a id="button" class="btn btn-primary" data-bs-toggle="offcanvas" href="#" role="button" aria-controls="offcanvasExample">
+    Filter producten
+  </a>
+  <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="select">Selecteer jouw keuzen</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
 
+      <div class="dropdown mt-3">
+        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
+          Merken
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="#">LEGO</a></li>
+          <li><a class="dropdown-item" href="#">Kapla</a></li>
+          <li><a class="dropdown-item" href="#">Duplo</a></li>
+          <li><a class="dropdown-item" href="#">RoboTime</a></li>
+          <li><a class="dropdown-item" href="#">SmartMax</a></li>
+          <li><a class="dropdown-item" href="#">Brio</a></li>
+          <li><a class="dropdown-item" href="#">Playmobil</a></li>
+          <li><a class="dropdown-item" href="#">MegaBloks</a></li>
+          <li><a class="dropdown-item" href="#">MegaConstrux</a></li>
+          <li><a class="dropdown-item" href="#">Geomag</a></li>
+          <li><a class="dropdown-item" href="#">KNEX</a></li>
+          <li><a class="dropdown-item" href="#">GraviTrax</a></li>
+          <li><a class="dropdown-item" href="#">Clementoni</a></li>
+        </ul>
+      </div>
+      <div class="dropdown mt-3">
+        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
+          Thema's
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="#">LEGO City</a></li>
+          <li><a class="dropdown-item" href="#">LEGO Marvel</a></li>
+          <li><a class="dropdown-item" href="#">LEGO Friends</a></li>
+          <li><a class="dropdown-item" href="#">LEGO Architecture</a></li>
+        </ul>
+      </div>
+      <div class="dropdown mt-3">
+        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
+          Sets
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="#">LEGO</a></li>
+          <li><a class="dropdown-item" href="#">Kapla</a></li>
+          <li><a class="dropdown-item" href="#">Duplo</a></li>
+          <li><a class="dropdown-item" href="#">RoboTime</a></li>
+          <li><a class="dropdown-item" href="#">SmartMax</a></li>
+          <li><a class="dropdown-item" href="#">Brio</a></li>
+          <li><a class="dropdown-item" href="#">Playmobil</a></li>
+          <li><a class="dropdown-item" href="#">MegaBloks</a></li>
+          <li><a class="dropdown-item" href="#">MegaConstrux</a></li>
+          <li><a class="dropdown-item" href="#">Geomag</a></li>
+          <li><a class="dropdown-item" href="#">KNEX</a></li>
+        </ul>
+      </div>
+      <div class="dropdown mt-3">
+        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
+          Leeftijd
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="#">0-3</a></li>
+          <li><a class="dropdown-item" href="#">3-6</a></li>
+          <li><a class="dropdown-item" href="#">7+</a></li>
+        </ul>
+      </div>
+      <div class="dropdown mt-3">
+        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
+          Steentjes
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="#">-20</a></li>
+          <li><a class="dropdown-item" href="#">20-100</a></li>
+          <li><a class="dropdown-item" href="#">100-200</a></li>
+          <li><a class="dropdown-item" href="#">200-500</a></li>
+          <li><a class="dropdown-item" href="#">500-1000</a></li>
+          <li><a class="dropdown-item" href="#">1000+</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
 
   <div class="container">
     <div class="row">
