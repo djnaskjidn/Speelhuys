@@ -3,7 +3,7 @@
 include "./classes/database.php";
 include "./classes/sets.php";
 include "./classes/brands.php";
-//include "./classes/themes.php";
+include "./classes/themes.php";
 
 
 
@@ -21,6 +21,19 @@ $brand = Brands::ideetjepakken($setje->setBrandId);
 
 
 echo $setje->setBrandId;
+$Mo = $setje->setThemeId;
+if (!$Mo)
+  {
+    $Mo = 0;
+  }    
+  else
+  {
+$themes = Themes::themeslatenzien($Mo);
+  }
+
+
+
+
 
 
 ?>
@@ -54,6 +67,7 @@ echo $setje->setBrandId;
 
           <div class="card-body">
             <p class="card-text"><?= $setje->setName; ?></p>
+            
           </div>
 
         </div>
@@ -64,7 +78,28 @@ echo $setje->setBrandId;
 
       <div class="col-5">
 
-       <h1> <?=  $brand->brand_name; ?> </h1>
+      
+
+
+
+       <h1> <?= "Merk: " . $brand->brand_name; ?> </h1>
+       <h2> <?php if ($Mo == 0)
+       {
+        echo "Geen thema";
+       } 
+       else
+       {
+        echo "Theme: " .  $themes->theme_name; 
+       }
+       
+
+
+       ?> </h2>
+<p> <?=  $setje->setDescription;  ?>  </p>
+<p> Prijs:  &euro; <?= $setje->setPrice;  ?> </p>
+<p> Aantal steentjes: <?= $setje->steentjes;  ?> </p>
+<p> Leeftijd: vanaf <?= $setje->setAge;  ?> jaar </p>
+<p> Op voorraad: <?= $setje->setStock;  ?> </p>
 
       </div>
 
