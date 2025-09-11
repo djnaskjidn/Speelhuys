@@ -162,7 +162,7 @@ $ietss = Sets::hoi($hamburger);
 
             <a href="detail.php?id=<?= $set->setId; ?>">
               <div class="card h-100 d-flex flex-column" style="width: 18rem;">
-                <img src="images/sets/<?= $set->setImage; ?>" class="card-img-top img-fluid" style="max-height: 250px; object-fit: cover;">
+                <img src="images/sets/<?= $set->setImage; ?>"alt="geen foto" onerror="this.src='./images/sets/stock.ong'; class="card-img-top img-fluid" style="max-height: 250px; object-fit: cover;"     >
 
                 <div id="card-body" class="card-body d-flex flex-column">
                   <p id="card-text" class="card-text flex-grow-1"><?= $set->setName; ?></p>
@@ -193,9 +193,10 @@ $ietss = Sets::hoi($hamburger);
 
 
 
-
+<div class="row">
   <nav aria-label="Page navigation example">
     <ul class="pagination justify-content-center">
+    
 
       <?php
       for ($i = 1; $i <= round($pagina); $i++) : ?>
@@ -208,7 +209,7 @@ $ietss = Sets::hoi($hamburger);
       </li>
     </ul>
   </nav>
-
+  </div>
 
 
 
