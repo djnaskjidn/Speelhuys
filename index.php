@@ -108,9 +108,10 @@ $ietss = Sets::hoi($hamburger);
 
 
 
-
+<div class="row">
   <nav aria-label="Page navigation example">
     <ul class="pagination justify-content-center">
+    
 
       <?php
       for ($i = 1; $i <= round($pagina); $i++) : ?>
@@ -123,7 +124,7 @@ $ietss = Sets::hoi($hamburger);
       </li>
     </ul>
   </nav>
-
+  </div>
 
 
 
