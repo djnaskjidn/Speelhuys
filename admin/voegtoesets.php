@@ -61,20 +61,36 @@ if (isset($_POST["name"])) {
 
                 <br>
                 <form  method="post">
-                <a class="letters">Product naam:</a> <br />
+                <a class="letters">Set naam:</a> <br />
                     <input type="text" name="name" value="" /><br />
                     <br>
 
-                    <a class="letters">Product category:</a> <br />
-                    <input type="text" name="category" value="" /><br />
+                    <a class="letters">Set  omschrijving:</a> <br />
+                    <input type="text" name="description" value="" /><br />
                     <br>
 
-                    <a class="letters">Product prijs:</a> <br />
+                    <a class="letters">Set merk</a> <br />
+                    <input type="text" name="Brand" value="" /><br />
+                    <br>
+
+                    <a class="letters">Thema:</a> <br />
+                    <input type="text" name="theme" value="" /><br />
+                    <br>
+                    <?php // foto nog toevoeg element ?>
+                                    <a class="letters">Foto:</a> <br />
+                    <input type="text" name="foto" value="" /><br />
+                    <br>
+                                    <a class="letters">Set prijs:</a> <br />
                     <input type="text" name="price" value="" /><br />
                     <br>
-
-                    <a class="letters">Product instock:</a> <br />
-                    <input type="text" name="stock" value="" /><br />
+                                    <a class="letters">Set Leeftijd:</a> <br />
+                    <input type="text" name="age" value="" /><br />
+                    <br>
+                                    <a class="letters">Set steentjes</a> <br />
+                    <input type="text" name="steentjes" value="" /><br />
+                    <br>
+                                    <a class="letters">Inventaris:</a> <br />
+                    <input type="text" name="Stock" value="" /><br />
                     <br>
 
                 <button type="submit" name="submit" value="doen" id="liveToastBtn" class="btn btn-primary">Verzenden</button>
