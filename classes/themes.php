@@ -51,12 +51,27 @@ class Themes
        
      }
 
-      $conn->close();
-      
-      return $theme; 
+        $conn->close();
+        return $theme; 
     }  
-  }
-     
+
+    public function aanpas($hoi)
+    {
+        $conn = Database::start(); 
+        $id = mysqli_real_escape_string($conn, $hoi); 
+        $name = mysqli_real_escape_string($conn, $this->theme_name);  
+        $sql = "
+            UPDATE
+                themes
+            SET
+                theme_name = '" . $name . "'  
+            WHERE
+                theme_id = " . $id . "
+        ";
+        $conn->query($sql);
+        $conn->close();
+    }
+}
 
 
 
