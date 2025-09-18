@@ -45,8 +45,8 @@ class Themes
      while ($row = $resultaat->fetch_assoc()) 
      { 
       $theme = new Themes ();
-      $theme-> theme_id = $row ['theme_id'];
-      $theme-> theme_name = $row ['theme_name'];
+      $theme->theme_id = $row ['theme_id'];
+      $theme->theme_name = $row ['theme_name'];
        
        
      }
@@ -60,6 +60,8 @@ class Themes
         $conn = Database::start(); 
         $id = mysqli_real_escape_string($conn, $hoi); 
         $name = mysqli_real_escape_string($conn, $this->theme_name);  
+
+
         $sql = "
             UPDATE
                 themes
@@ -71,6 +73,52 @@ class Themes
         $conn->query($sql);
         $conn->close();
     }
+
+    public function doei($id) // deze zorgt dat de blog permanent verwijderd word 👍
+    {
+        $conn = Database::start(); // start de database
+
+        $sql = "
+
+        DELETE FROM 
+        themes
+        WHERE 
+            theme_id = " . $id . "
+            
+        ";
+
+
+        $conn->query($sql);// sluit de verbinding
+
+        $conn->close();
+    
+    
+    }
+
+    public function insert() 
+    {
+
+
+        $conn = Database::start(); // start de database
+
+        $name = mysqli_real_escape_string($conn, $this->theme_name); // veiligheid
+
+
+        $sql = "INSERT INTO themes
+            (
+                theme_name
+
+            ) VALUES 
+            (
+                '" . $name . "'
+            )";
+
+
+        $conn->query($sql);// sluit de verbinding
+
+        $conn->close();
+    }
+    
 }
 
 

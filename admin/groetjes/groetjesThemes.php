@@ -11,7 +11,7 @@
 
 
 include "C:/xampp/htdocs/Speelhuys/classes/database.php";
-include "C:/xampp/htdocs/Speelhuys/classes/sets.php";
+include "C:/xampp/htdocs/Speelhuys/classes/themes.php";
 include "C:/xampp/htdocs/Speelhuys/classes/gebruiker.php";
 include "C:/xampp/htdocs/Speelhuys/classes/sessie.php";
 
@@ -39,15 +39,16 @@ else
 
 
 
-    $hoi = $_GET["id"];
-    $set = Sets::hallo($hoi);
+    $Mo = $_GET["id"];
+
+    $theme = Themes::themeslatenzien($Mo);
 
     
 
 
 
-    if ($hoi == null) {
-        header("Location: ./home.php");
+    if ($Mo == null) {
+        header("Location: ../home.php?message= verwijderd denk ik");
         exit;
     }
     
@@ -103,16 +104,18 @@ else
 
 <?php
 $id =0;
-$id = $set->setId;
+$id = $theme->theme_id;
 
-if(!$set)
+if(!$theme)
 {
 
 }
 else
 {
-$set->doei($id);
+    
+$theme->doei($id); // verwijderd
 header("location: ../home.php?message= verwijderd denk ik");
+
 }
 
 ?>

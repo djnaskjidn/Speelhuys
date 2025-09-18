@@ -1,5 +1,6 @@
 <?php
-
+  
+  
 
 if (isset($_GET["id"])) {
   $geenIdee = $_GET["id"];
@@ -10,8 +11,7 @@ if (isset($_GET["id"])) {
 
 include "./classes/database.php";
 include "./classes/sets.php";
-include "./classes/brands.php";
-include "./classes/themes.php";
+
 
 $totalitems = 0;
 

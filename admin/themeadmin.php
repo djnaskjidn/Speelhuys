@@ -43,6 +43,35 @@ $nummer = 0;
 </head>
 
 <body>
+
+
+ 
+    <nav class="navbar bg-primary" data-bs-theme="dark">        
+        <div class="container-fluid">
+            <a class="navbar-brand" href="setsadmin.php">Sets</a>
+            <a class="navbar-brand" href="themeadmin.php">Themes</a>
+            <a class="navbar-brand" href="brandadmin.php">Brands</a>
+            <a class="navbar-brand" href="voegtoesets.php">Voeg toe</a>
+            <a class="navbar-brand" href="index.php">Home</a>
+
+
+
+            <div class="d-flex">
+                <a href="logout.php" class="btn btn-outline-light" type="submit">Logout <i class="bi bi-box-arrow-right"></i></a>
+
+
+
+
+
+
+
+            </div>
+        </div>  
+
+</nav>
+
+
+
     <div class="container my-4">
         <div class="row g-3">
             <?php foreach ($themess as $themes) : ?>
@@ -61,7 +90,7 @@ $nummer = 0;
                             <a href="./bewerk/bewerkthemes.php?id=<?= $themes->theme_id ?>" class="btn btn-sm btn-primary">
                                 <i class="bi bi-pencil"></i> Bewerken
                             </a>
-                            <a href="./bewerk/bewerkthemes.php?id=<?= $themes->theme_id ?>" class="btn btn-sm btn-primary">
+                            <a href="./groetjes/groetjesThemes.php?id=<?= $themes->theme_id ?>" class="btn btn-sm btn-primary">
                                 <i class="bi bi-trash"></i> verwijderen
                             </a>
                         </div>

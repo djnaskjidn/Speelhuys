@@ -71,6 +71,30 @@ $ietss = Sets::hoi($hamburger);
 </head>
 
 <body>
+    
+    <nav class="navbar bg-primary" data-bs-theme="dark">        
+        <div class="container-fluid">
+            <a class="navbar-brand" href="setsadmin.php">Sets</a>
+            <a class="navbar-brand" href="themeadmin.php">Themes</a>
+            <a class="navbar-brand" href="brandadmin.php">Brands</a>
+            <a class="navbar-brand" href="voegtoesets.php">Voeg toe</a>
+            <a class="navbar-brand" href="index.php">Home</a>
+
+
+
+            <div class="d-flex">
+                <a href="logout.php" class="btn btn-outline-light" type="submit">Logout <i class="bi bi-box-arrow-right"></i></a>
+
+
+
+
+
+
+
+            </div>
+        </div>  
+
+</nav>
 
 
     <div class="container">

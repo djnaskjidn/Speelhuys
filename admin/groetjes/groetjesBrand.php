@@ -11,7 +11,7 @@
 
 
 include "C:/xampp/htdocs/Speelhuys/classes/database.php";
-include "C:/xampp/htdocs/Speelhuys/classes/sets.php";
+include "C:/xampp/htdocs/Speelhuys/classes/brands.php";
 include "C:/xampp/htdocs/Speelhuys/classes/gebruiker.php";
 include "C:/xampp/htdocs/Speelhuys/classes/sessie.php";
 
@@ -111,7 +111,7 @@ if(!$set)
 }
 else
 {
-$set->doei($id);
+$set->doei($id); // verwijderd
 header("location: ../home.php?message= verwijderd denk ik");
 }
 

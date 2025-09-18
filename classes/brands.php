@@ -93,7 +93,33 @@ class Brands
 
 
 
+        public function insert() 
+        {
+    
+    
+            $conn = Database::start(); // start de database
+    
+            $name = mysqli_real_escape_string($conn, $this->brand_name); // veiligheid
+            $image = mysqli_real_escape_string($conn, $this->brand_logo);// veiligheid
+    
+    
+            $sql = "INSERT INTO brands
+                (
+                    brand_name,
+                    brand_logo
 
+    
+                ) VALUES 
+                (
+                    '" . $name . "',
+                    '" . $image . "'
+                )";
+    
+    
+            $conn->query($sql);// sluit de verbinding
+    
+            $conn->close();
+        }
 
 
 

@@ -1,33 +1,19 @@
         <?php
 
     include "../classes/database.php";
-    include "../classes/brands.php";
+    include "../classes/themes.php";
 
 
 
-    $image = "";
-    if (!empty($_FILES["bestand"]["name"])) {
-        $image = $_FILES["bestand"]["name"];
-
-
-
-        $target = "../images/sets/" . basename($image);
-
-
-        move_uploaded_file($_FILES["bestand"]["tmp_name"], $target);
-    }
 
 
 
         if (isset($_POST["name"])) {
             
 
-            $newbrand = new Brands();
-            $newbrand->brand_name = $_POST["name"];
-
-            $newbrand->brand_logo = $image;
-
-            $newbrand->insert();
+            $newtheme = new Themes();
+            $newtheme->theme_name = $_POST["name"];
+            $newtheme->insert();
             
             exit;
         }
@@ -61,26 +47,12 @@
 
                         <br>
                         <form  method="post" enctype="multipart/form-data">>
-                        <a class="letters">Brand naam:</a> <br />
+                        <a class="letters">Set naam:</a> <br />
                             <input type="text" name="name" value="" /><br />
                             <br>
 
 
-
                             
-                            <label for="bestand">
-                                Bestand:
-                            </label>
-                            <br />
-                            <input type="file" id="bestand" name="bestand">
-                            <br><br />
-
-                            <?php if (!empty($sets->image)) { ?>
-                                <img src="../images/sets/<?= $sets->image; ?>" alt="Afbeelding" style="max-width: 200px;">
-                            <?php } ?>
-                            <br>
-  
-                            <br>
 
                         <button type="submit" name="submit" value="doen" id="liveToastBtn" class="btn btn-primary">Verzenden</button>
                         </form>
