@@ -10,7 +10,9 @@ if (isset($_GET["id"])) {
 
 
 include "./classes/database.php";
+include "./classes/brands.php";
 include "./classes/sets.php";
+include "./classes/themes.php";
 
 
 $totalitems = 0;
@@ -36,6 +38,8 @@ if ($geenIdee == 1) {
 } else {
   $hamburger = $geenIdee * 10 - 10;
 }
+
+// afronden om merk filter te laten werken.
 
 
 
@@ -82,7 +86,7 @@ $sets = Sets::setsLatenZienInDeIndex();
       </button>
       <ul class="dropdown-menu">
         <?php foreach ($brands as $brand) { ?>
-          <li><a class="dropdown-item" href="index.php?id=<?= $brand->brand_name?>"> <?= $brand_name; ?></a></li>
+          <li><a class="dropdown-item" href="index.php?id=<?= $brand->brand_id?>"> <?= $brand->brand_name; ?></a></li>
         <?php } ?>
       </ul>
     </div>
