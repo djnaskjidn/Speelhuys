@@ -28,7 +28,22 @@ class Themes
       return $theme; 
     }  
   }
-     
+      public function aanpas($hoi) // update de blog of niet licht er aan of de gebruiker dat heeft gedaan
+        {
+            $conn = Database::start(); // start de database
+            $id = mysqli_real_escape_string($conn, $hoi); // veiligheid
+            $name = mysqli_real_escape_string($conn, $this->theme_name); // veiligheid  
+            $sql = "
+            UPDATE
+                themes
+            SET
+                theme_name = '" . $name . "'  
+            WHERE
+                theme_id = " . $id . "
+            ";
+            $conn->query($sql);// sluit de verbinding
+            $conn->close();
+        }
 
 
 
