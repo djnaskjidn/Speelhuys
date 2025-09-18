@@ -10,12 +10,10 @@
 </head>
 
 <body>
+ 
 
   <div class="container">
     <div class="row">
-
-
-
       <div class="col-4"> <br></div>
       <br>
 
@@ -23,33 +21,34 @@
         <br>
         <form name="stad" method="post" action="create.php">
           <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Gebruikers naam:</label>
+            <label class="form-label">Gebruikers naam:</label>
             <input type="text" class="form-control" name="naam" value="" /><br />
-
           </div>
           <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">Password</label>
+            <label class="form-label">Password</label>
             <input type="text" class="form-control" name="ww" value="" /><br />
           </div>
 
-          <button style="center" type="submit" class="btn btn-outline-primary btn-lg">Submit</button> <!-- geen idee waarom er een error zit, het werkt ook gewoon allemaal, lol. -->
-
+          <button type="submit" class="btn btn-outline-primary btn-lg">Submit</button>
         </form>
       </div>
+
+      
       <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
         <div id="liveToast" class="toast align-items-center text-bg-success border-0" role="alert" aria-live="assertive" aria-atomic="true">
-            <div class="d-flex">
-                <div class="toast-body">
-                    <a><?php echo $message ?></a>
-                </div>
-                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+          <div class="d-flex">
+            <div class="toast-body">
+              <a><?php echo $message ?? ""; ?></a>
             </div>
+            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-        crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
 </body>
-
 </html>

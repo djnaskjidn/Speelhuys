@@ -71,6 +71,24 @@ $ietss = Sets::hoi($hamburger);
 </head>
 
 <body>
+    
+    <nav class="navbar bg-primary" data-bs-theme="dark">        
+        <div class="container-fluid">
+            <a class="navbar-brand" href="home.php">Home</a>
+
+            <div class="d-flex">
+                <a href="logout.php" class="btn btn-outline-light" type="submit">Logout <i class="bi bi-box-arrow-right"></i></a>
+
+
+
+
+
+
+
+            </div>
+        </div>  
+
+</nav>
 
 
     <div class="container">
