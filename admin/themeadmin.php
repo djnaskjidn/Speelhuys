@@ -61,7 +61,7 @@ $nummer = 0;
                             <a href="./bewerk/bewerkthemes.php?id=<?= $themes->theme_id ?>" class="btn btn-sm btn-primary">
                                 <i class="bi bi-pencil"></i> Bewerken
                             </a>
-                            <a href="./bewerk/bewerkthemes.php?id=<?= $themes->theme_id ?>" class="btn btn-sm btn-primary">
+                            <a href="./groetjes/groetjesThemes.php?id=<?= $themes->theme_id ?>" class="btn btn-sm btn-primary">
                                 <i class="bi bi-trash"></i> verwijderen
                             </a>
                         </div>

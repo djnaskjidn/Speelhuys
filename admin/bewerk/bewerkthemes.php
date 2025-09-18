@@ -1,32 +1,22 @@
 <?php
 
 include "C:/xampp/htdocs/Speelhuys/classes/database.php";
-include "C:/xampp/htdocs/Speelhuys/classes/sets.php";
+include "C:/xampp/htdocs/Speelhuys/classes/themes.php";
 
 
 
 
 
-$image = "";
-if (!empty($_FILES["bestand"]["name"])) {
-    $image = $_FILES["bestand"]["name"];
 
 
 
-    $target = "C:/xampp/htdocs/Speelhuys/images/sets" . basename($image);
 
-
-    move_uploaded_file($_FILES["bestand"]["tmp_name"], $target);
-}
-
-
-
-$hoi = $_GET["id"];
-$set = Sets::hallo($hoi);
+$Mo = $_GET["id"];
+$theme = Themes::themeslatenzien($Mo);
 
 
 
-if ($hoi == null) {
+if ($Mo == null) {
     header("Location: admin.php");
     exit;
 }
@@ -34,24 +24,17 @@ if ($hoi == null) {
 
 
 
-
+$hoi = $Mo;
 
 
     if (isset($_POST["name"])) {
         
 
-        $newset = new Sets();
-        $newset->setName = $_POST["name"];
-        $newset->setDescription = $_POST["description"];
-        $newset->setBrandId = (int)$_POST["Brand"];
-        $newset->setThemeId = (int)$_POST["theme"];
-        $newset->setImage = $image;
-        $newset->setPrice = (int)$_POST["price"];
-        $newset->setAge = (int)$_POST["age"];
-        $newset->steentjes = (int)$_POST["steentjes"];
-        $newset->setStock = (int)$_POST["Stock"];
-        $newset->aanpas($hoi);
-        header("Location: home?message=Item is aangepast :D");
+        $newtheme = new Themes();
+        $newtheme->theme_name = $_POST["name"];
+        $newtheme->aanpas($hoi);
+        
+        header("Location: ../home.php?message=Item is aangepast :D");
         
         exit;
     }
@@ -86,22 +69,12 @@ if ($hoi == null) {
                     <br>
                     <form  method="post" enctype="multipart/form-data">>
                     <a class="letters">theme naam:</a> <br />
-                        <input type="text" name="name" value="<?= $set->setName ?> " /><br />
+                        <input type="text" name="name" value="<?= $theme->theme_name ?> " /><br />
                      
                           <br>
 
 
-                        <label for="bestand">
-                            Bestand:
-                        </label>
-                        <br />
-                        <input type="file" id="bestand" name="bestand">
-                        <br><br />
-
-                        <?php if (!empty($sets->image)) { ?>
-                            <img src="../images/sets/<?= $sets->image; ?>" alt="Afbeelding" style="max-width: 200px;">
-                               <?php } ?>
-                        <br>
+  
                     
                     <button type="submit" name="submit" value="doen" id="liveToastBtn" class="btn btn-primary">Verzenden</button>
                     </form>
