@@ -32,6 +32,8 @@ include "../classes/database.php";
     <?php
 }?>
 
+ 
+
 <div class="container">
 <div class="row">
 <br><p></p><br>
@@ -58,7 +60,8 @@ include "../classes/database.php";
 
 </div>
 
-
+ 
+  
 
 
 
