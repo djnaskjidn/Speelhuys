@@ -11,7 +11,7 @@ if (isset($_GET["id"])) {
 
 include "./classes/database.php";
 include "./classes/sets.php";
- 
+
 
 $totalitems = 0;
 
@@ -62,7 +62,7 @@ $ietss = Sets::hoi($hamburger);
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
   <!-- icon bootstrap -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" href="../css/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" href="./css/style.css">
 </head>
 
 <body id="body">
@@ -119,9 +119,9 @@ $ietss = Sets::hoi($hamburger);
         Leeftijd
       </button>
       <ul class="dropdown-menu">
-        <?php foreach ($set as $sets) { ?>
-          <li><a class="dropdown-item" href="index.php?id=<?= $sets->setAge ?>"> <?= $sets->setAge; ?></a></li>
-        <?php } ?>
+         <li><a class="dropdown-item" href="index.php?id=<?= $sets->setAge ?>">0 - 3</a></li>
+        <li><a class="dropdown-item" href="index.php?id=<?= $sets->setAge ?>">3 - 6</a></li>
+        <li><a class="dropdown-item" href="index.php?id=<?= $sets->setAge ?>">6 - 8</a></li>
       </ul>
     </div>
 
@@ -131,9 +131,11 @@ $ietss = Sets::hoi($hamburger);
         Steentjes
       </button>
       <ul class="dropdown-menu">
-        <?php foreach ($set as $sets) { ?>
-          <li><a class="dropdown-item" href="index.php?id=<?= $sets->steentjes ?>"> <?= $sets->setName; ?></a></li>
-        <?php } ?>
+        <li><a class="dropdown-item" href="index.php?id=<?= $sets->steentjes ?>">0 - 100</a></li>
+        <li><a class="dropdown-item" href="index.php?id=<?= $sets->steentjes ?>">100 - 500</a></li>
+        <li><a class="dropdown-item" href="index.php?id=<?= $sets->steentjes ?>">500 - 1000</a></li>
+        <li><a class="dropdown-item" href="index.php?id=<?= $sets->steentjes ?>">1000+</a></li>
+
       </ul>
     </div>
 

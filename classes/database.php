@@ -8,7 +8,7 @@ class Database
     {
         $dbServername = "127.0.0.1";
         $dbUsername = "root";
-        $dbPassword = "";
+        $dbPassword = "mysql";
         $dbDatabase = "speelhuys";
 
         //conectie
