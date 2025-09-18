@@ -1,5 +1,14 @@
 <?php
 
+include "../classes/database.php";
+
+
+
+
+
+
+
+
 ?>
 
 <!doctype html>
@@ -14,7 +23,40 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
   </head>
   <body id="body">
-    <h1>Hello, world!</h1>
+    
+
+<div class="container">
+<div class="row">
+<br><p></p><br>
+  <div class="col-4"></div>
+  <div class="col-4">
+
+
+  <div class="d-grid gap-3">
+  <p class="text-center">hoi</p>
+  <a href="setsadmin.php">
+    <button class="btn btn-primary btn-lg w-100" type="button">Sets</button>
+  </a>
+  <a href="themeadmin.php">
+    <button class="btn btn-primary btn-lg w-100" type="button">Themes</button>
+  </a>
+  <a href="brandadmin.php">
+    <button class="btn btn-primary btn-lg w-100" type="button">Brands</button>
+  </a>
+</div>
+
+  </div>
+</div>
+
+
+</div>
+
+
+
+
+
+
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
   </body>
 </html>
