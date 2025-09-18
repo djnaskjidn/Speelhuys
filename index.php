@@ -41,11 +41,9 @@ if ($geenIdee == 1) {
 
 $ietss = Sets::hoi($hamburger);
 
-
-
-
-
-
+$brands = Brands::brandsLatenZienInDeIndex();
+$themes = Themes::allethemeslatenzien();
+$sets = Sets::setsLatenZienInDeIndex();
 
 ?>
 
@@ -69,7 +67,7 @@ $ietss = Sets::hoi($hamburger);
   <!-- offcanvas filter tab -->
   <!-- prijs slider moet nog toegevoegd worden + links/hrefs naar de juiste pagina's -->
 
-  <a id="button" class="btn btn-primary" data-bs-toggle="offcanvas" href="#" role="button" aria-controls="offcanvasExample">
+  <a id="button" class="btn btn-primary" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
     Filter producten
   </a>
   <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
@@ -83,8 +81,8 @@ $ietss = Sets::hoi($hamburger);
         Merken
       </button>
       <ul class="dropdown-menu">
-        <?php foreach ($set as $sets) { ?>
-          <li><a class="dropdown-item" href="index.php?id=<?= $sets->setId ?>"> <?= $sets->brand_name; ?></a></li>
+        <?php foreach ($brands as $brand) { ?>
+          <li><a class="dropdown-item" href="index.php?id=<?= $brand->brand_name?>"> <?= $brand_name; ?></a></li>
         <?php } ?>
       </ul>
     </div>
@@ -95,8 +93,8 @@ $ietss = Sets::hoi($hamburger);
         Thema's
       </button>
       <ul class="dropdown-menu">
-        <?php foreach ($set as $sets) { ?>
-          <li><a class="dropdown-item" href="index.php?id=<?= $sets->theme_id ?>"> <?= $sets->theme_name; ?></a></li>
+        <?php foreach ($themes as $theme) { ?>
+          <li><a class="dropdown-item" href="index.php?id=<?= $theme->theme_id ?>"> <?= $theme->theme_name; ?></a></li>
         <?php } ?>
       </ul>
     </div>
@@ -107,8 +105,8 @@ $ietss = Sets::hoi($hamburger);
         Sets
       </button>
       <ul class="dropdown-menu">
-        <?php foreach ($set as $sets) { ?>
-          <li><a class="dropdown-item" href="index.php?id=<?= $sets->setId ?>"> <?= $sets->brand_name; ?></a></li>
+        <?php foreach ($sets as $set) { ?>
+          <li><a class="dropdown-item" href="index.php?id=<?= $set->setBrandId ?>"> <?= $set->setName; ?></a></li>
         <?php } ?>
       </ul>
     </div>
@@ -119,9 +117,9 @@ $ietss = Sets::hoi($hamburger);
         Leeftijd
       </button>
       <ul class="dropdown-menu">
-         <li><a class="dropdown-item" href="index.php?id=<?= $sets->setAge ?>">0 - 3</a></li>
-        <li><a class="dropdown-item" href="index.php?id=<?= $sets->setAge ?>">3 - 6</a></li>
-        <li><a class="dropdown-item" href="index.php?id=<?= $sets->setAge ?>">6 - 8</a></li>
+         <li><a class="dropdown-item" href="index.php?id=<?= $set->setAge ?>">0 - 3</a></li>
+        <li><a class="dropdown-item" href="index.php?id=<?= $set->setAge ?>">3 - 6</a></li>
+        <li><a class="dropdown-item" href="index.php?id=<?= $set->setAge ?>">6 - 8</a></li>
       </ul>
     </div>
 
@@ -131,10 +129,10 @@ $ietss = Sets::hoi($hamburger);
         Steentjes
       </button>
       <ul class="dropdown-menu">
-        <li><a class="dropdown-item" href="index.php?id=<?= $sets->steentjes ?>">0 - 100</a></li>
-        <li><a class="dropdown-item" href="index.php?id=<?= $sets->steentjes ?>">100 - 500</a></li>
-        <li><a class="dropdown-item" href="index.php?id=<?= $sets->steentjes ?>">500 - 1000</a></li>
-        <li><a class="dropdown-item" href="index.php?id=<?= $sets->steentjes ?>">1000+</a></li>
+        <li><a class="dropdown-item" href="index.php?id=<?= $set->steentjes ?>">0 - 100</a></li>
+        <li><a class="dropdown-item" href="index.php?id=<?= $set->steentjes ?>">100 - 500</a></li>
+        <li><a class="dropdown-item" href="index.php?id=<?= $set->steentjes ?>">500 - 1000</a></li>
+        <li><a class="dropdown-item" href="index.php?id=<?= $set->steentjes ?>">1000+</a></li>
 
       </ul>
     </div>
