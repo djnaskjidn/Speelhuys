@@ -12,6 +12,28 @@
 
 include "C:/xampp/htdocs/Speelhuys/classes/database.php";
 include "C:/xampp/htdocs/Speelhuys/classes/sets.php";
+include "C:/xampp/htdocs/Speelhuys/classes/gebruiker.php";
+include "C:/xampp/htdocs/Speelhuys/classes/sessie.php";
+
+
+$sessie = Sessie::vindActieveSessie();
+if ($sessie == null) {
+    header("location: index.php");
+    exit;
+}
+$user_id = $sessie->userId;
+
+
+$gebruikertje = User::zoekIdeeeee($user_id);
+
+if ($gebruikertje->role == "employee")
+{
+    header("location: ../home.php?message= JIJ hebt GEEN toegang");  
+}
+else
+{
+
+}
 
 
 
@@ -90,6 +112,7 @@ if(!$set)
 else
 {
 $set->doei($id); // verwijderd
+header("location: ../home.php?message= verwijderd denk ik");
 }
 
 ?>
