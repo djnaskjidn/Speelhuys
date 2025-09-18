@@ -51,7 +51,7 @@ if ($hoi == null) {
         $newset->steentjes = (int)$_POST["steentjes"];
         $newset->setStock = (int)$_POST["Stock"];
         $newset->aanpas($hoi);
-        header("Location: home?message=Item is aangepast :D");
+        header("Location: ../home.php?message=Item is aangepast :D");
         
         exit;
     }
