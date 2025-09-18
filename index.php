@@ -38,6 +38,10 @@ if ($geenIdee == 1) {
 }
 
 
+if ($set <= 10) {
+  
+}
+
 
 $ietss = Sets::hoi($hamburger);
 
@@ -82,7 +86,7 @@ $sets = Sets::setsLatenZienInDeIndex();
       </button>
       <ul class="dropdown-menu">
         <?php foreach ($brands as $brand) { ?>
-          <li><a class="dropdown-item" href="index.php?id=<?= $brand->brand_name?>"> <?= $brand_name; ?></a></li>
+          <li><a class="dropdown-item" href="index.php?id=<?= $brand->brand_id?>"> <?= $brand->brand_name; ?></a></li>
         <?php } ?>
       </ul>
     </div>
