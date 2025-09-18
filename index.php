@@ -10,6 +10,8 @@ if (isset($_GET["id"])) {
 
 include "./classes/database.php";
 include "./classes/sets.php";
+include "./classes/brands.php";
+include "./classes.themes.php";
 
 $totalitems = 0;
 
@@ -76,80 +78,66 @@ $ietss = Sets::hoi($hamburger);
       <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body">
-
-      <div class="dropdown mt-3">
-        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
-          Merken
-        </button>
-        <ul class="dropdown-menu">
-          <li><a class="dropdown-item" href="#">LEGO</a></li>
-          <li><a class="dropdown-item" href="#">Kapla</a></li>
-          <li><a class="dropdown-item" href="#">Duplo</a></li>
-          <li><a class="dropdown-item" href="#">RoboTime</a></li>
-          <li><a class="dropdown-item" href="#">SmartMax</a></li>
-          <li><a class="dropdown-item" href="#">Brio</a></li>
-          <li><a class="dropdown-item" href="#">Playmobil</a></li>
-          <li><a class="dropdown-item" href="#">MegaBloks</a></li>
-          <li><a class="dropdown-item" href="#">MegaConstrux</a></li>
-          <li><a class="dropdown-item" href="#">Geomag</a></li>
-          <li><a class="dropdown-item" href="#">KNEX</a></li>
-          <li><a class="dropdown-item" href="#">GraviTrax</a></li>
-          <li><a class="dropdown-item" href="#">Clementoni</a></li>
-        </ul>
-      </div>
-      <div class="dropdown mt-3">
-        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
-          Thema's
-        </button>
-        <ul class="dropdown-menu">
-          <li><a class="dropdown-item" href="#">LEGO City</a></li>
-          <li><a class="dropdown-item" href="#">LEGO Marvel</a></li>
-          <li><a class="dropdown-item" href="#">LEGO Friends</a></li>
-          <li><a class="dropdown-item" href="#">LEGO Architecture</a></li>
-        </ul>
-      </div>
-      <div class="dropdown mt-3">
-        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
-          Sets
-        </button>
-        <ul class="dropdown-menu">
-          <li><a class="dropdown-item" href="#">LEGO</a></li>
-          <li><a class="dropdown-item" href="#">Kapla</a></li>
-          <li><a class="dropdown-item" href="#">Duplo</a></li>
-          <li><a class="dropdown-item" href="#">RoboTime</a></li>
-          <li><a class="dropdown-item" href="#">SmartMax</a></li>
-          <li><a class="dropdown-item" href="#">Brio</a></li>
-          <li><a class="dropdown-item" href="#">Playmobil</a></li>
-          <li><a class="dropdown-item" href="#">MegaBloks</a></li>
-          <li><a class="dropdown-item" href="#">MegaConstrux</a></li>
-          <li><a class="dropdown-item" href="#">Geomag</a></li>
-          <li><a class="dropdown-item" href="#">KNEX</a></li>
-        </ul>
-      </div>
-      <div class="dropdown mt-3">
-        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
-          Leeftijd
-        </button>
-        <ul class="dropdown-menu">
-          <li><a class="dropdown-item" href="#">0-3</a></li>
-          <li><a class="dropdown-item" href="#">3-6</a></li>
-          <li><a class="dropdown-item" href="#">7+</a></li>
-        </ul>
-      </div>
-      <div class="dropdown mt-3">
-        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
-          Steentjes
-        </button>
-        <ul class="dropdown-menu">
-          <li><a class="dropdown-item" href="#">-20</a></li>
-          <li><a class="dropdown-item" href="#">20-100</a></li>
-          <li><a class="dropdown-item" href="#">100-200</a></li>
-          <li><a class="dropdown-item" href="#">200-500</a></li>
-          <li><a class="dropdown-item" href="#">500-1000</a></li>
-          <li><a class="dropdown-item" href="#">1000+</a></li>
-        </ul>
-      </div>
+      <!-- brands -->
+      <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
+        Merken
+      </button>
+      <ul class="dropdown-menu">
+        <?php foreach ($set as $sets) { ?>
+          <li><a class="dropdown-item" href="index.php?id=<?= $sets->setId ?>"> <?= $sets->brand_name; ?></a></li>
+        <?php } ?>
+      </ul>
     </div>
+
+    <!-- themes -->
+    <div class="dropdown mt-3">
+      <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
+        Thema's
+      </button>
+      <ul class="dropdown-menu">
+        <?php foreach ($set as $sets) { ?>
+          <li><a class="dropdown-item" href="index.php?id=<?= $sets->theme_id ?>"> <?= $sets->theme_name; ?></a></li>
+        <?php } ?>
+      </ul>
+    </div>
+
+    <!-- sets -->
+    <div class="dropdown mt-3">
+      <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
+        Sets
+      </button>
+      <ul class="dropdown-menu">
+        <?php foreach ($set as $sets) { ?>
+          <li><a class="dropdown-item" href="index.php?id=<?= $sets->setId ?>"> <?= $sets->brand_name; ?></a></li>
+        <?php } ?>
+      </ul>
+    </div>
+
+    <!-- age -->
+    <div class="dropdown mt-3">
+      <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
+        Leeftijd
+      </button>
+      <ul class="dropdown-menu">
+        <?php foreach ($set as $sets) { ?>
+          <li><a class="dropdown-item" href="index.php?id=<?= $sets->setAge ?>"> <?= $sets->setAge; ?></a></li>
+        <?php } ?>
+      </ul>
+    </div>
+
+    <!-- bricks -->
+    <div class="dropdown mt-3">
+      <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
+        Steentjes
+      </button>
+      <ul class="dropdown-menu">
+        <?php foreach ($set as $sets) { ?>
+          <li><a class="dropdown-item" href="index.php?id=<?= $sets->steentjes ?>"> <?= $sets->setName; ?></a></li>
+        <?php } ?>
+      </ul>
+    </div>
+
+  </div>
   </div>
 
   <div class="container">
@@ -162,7 +150,7 @@ $ietss = Sets::hoi($hamburger);
 
             <a href="detail.php?id=<?= $set->setId; ?>">
               <div class="card h-100 d-flex flex-column" style="width: 18rem;">
-                <img src="images/sets/<?= $set->setImage; ?>"alt="geen foto" onerror="this.src='./images/sets/stock.ong'; class="card-img-top img-fluid" style="max-height: 250px; object-fit: cover;"     >
+                <img src="images/sets/<?= $set->setImage; ?>" alt="geen foto" onerror="this.src='./images/sets/stock.ong'; class=" card-img-top img-fluid" style="max-height: 250px; object-fit: cover;">
 
                 <div id="card-body" class="card-body d-flex flex-column">
                   <p id="card-text" class="card-text flex-grow-1"><?= $set->setName; ?></p>
@@ -193,22 +181,22 @@ $ietss = Sets::hoi($hamburger);
 
 
 
-<div class="row">
-  <nav aria-label="Page navigation example">
-    <ul class="pagination justify-content-center">
-    
-
-      <?php
-      for ($i = 1; $i <= round($pagina); $i++) : ?>
-
-        <li class="page-item"><a class="page-link" href="index.php?id=<?= $i; ?>"><?php echo $i; ?> </a></li>
-
-      <?php endfor ?>
+  <div class="row">
+    <nav aria-label="Page navigation example">
+      <ul class="pagination justify-content-center">
 
 
-      </li>
-    </ul>
-  </nav>
+        <?php
+        for ($i = 1; $i <= round($pagina); $i++) : ?>
+
+          <li class="page-item"><a class="page-link" href="index.php?id=<?= $i; ?>"><?php echo $i; ?> </a></li>
+
+        <?php endfor ?>
+
+
+        </li>
+      </ul>
+    </nav>
   </div>
 
 
