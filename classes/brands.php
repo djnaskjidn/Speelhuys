@@ -77,14 +77,13 @@ class Brands
             $sql = "
             UPDATE 
                 brands 
-            brand
-                 brand_name = '" . $name . "', 
-                brand_id  = '" . $id . "',
-                brand_logo = '"$logo . "'
-            
-            WHERE 
+            SET
+                brand_name = '" . $name . "',       
+                brand_logo = '" . $logo . "'
+            WHERE
                 brand_id = " . $id . "
             ";
+            
     
     
             $conn->query($sql);// sluit de verbinding
