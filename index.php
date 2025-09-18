@@ -10,7 +10,9 @@ if (isset($_GET["id"])) {
 
 
 include "./classes/database.php";
+include "./classes/brands.php";
 include "./classes/sets.php";
+include "./classes/themes.php";
 
 
 $totalitems = 0;
@@ -38,9 +40,7 @@ if ($geenIdee == 1) {
 }
 
 // afronden om merk filter te laten werken.
-if ($set <= 10) {
 
-}
 
 
 $ietss = Sets::hoi($hamburger);

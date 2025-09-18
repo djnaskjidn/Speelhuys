@@ -69,8 +69,8 @@ class Brands
             $conn = Database::start(); // start de database
     
             $id = mysqli_real_escape_string($conn, $hoi); // veiligheid
-            $name = mysqli_real_escape_string($conn, $this->brandname); // veiligheid
-            $logo = mysqli_real_escape_string($conn, $this->brandlogo);// veiligheid
+            $name = mysqli_real_escape_string($conn, $this->brand_name); // veiligheid
+            $logo = mysqli_real_escape_string($conn, $this->brand_logo);// veiligheid
 
     
     
