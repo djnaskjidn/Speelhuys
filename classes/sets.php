@@ -251,6 +251,7 @@ class Sets
         sets
         WHERE 
             set_id = " . $id. "
+            
         ";
 
 
