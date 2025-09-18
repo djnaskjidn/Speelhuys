@@ -51,7 +51,7 @@ $nummer = 0;
             <a class="navbar-brand" href="setsadmin.php">Sets</a>
             <a class="navbar-brand" href="themeadmin.php">Themes</a>
             <a class="navbar-brand" href="brandadmin.php">Brands</a>
-            <a class="navbar-brand" href="voegtoesets.php">Voeg toe</a>
+            <a class="navbar-brand" href="voegtoetheme.php">Voeg toe</a>
             <a class="navbar-brand" href="index.php">Home</a>
 
 
