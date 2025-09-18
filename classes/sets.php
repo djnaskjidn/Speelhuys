@@ -9,7 +9,7 @@ class Sets
     public string $setDescription;
     public float $setBrandId;
     public ?float $setThemeId;
-    public string $setImage;
+    public ?string $setImage;
     public int $setPrice;
     public int $setAge;
     public int $steentjes;

@@ -1,7 +1,7 @@
 <?php
 
 include "C:/xampp/htdocs/Speelhuys/classes/database.php";
-include "C:/xampp/htdocs/Speelhuys/classes/sets.php";
+include "C:/xampp/htdocs/Speelhuys/classes/brands.php";
 
 
 
@@ -21,12 +21,13 @@ if (!empty($_FILES["bestand"]["name"])) {
 
 
 
-$hoi = $_GET["id"];
-$set = Sets::hallo($hoi);
+$ideetje = $_GET["id"];
+$brandss = Brands::ideetjepakken($ideetje);
+
+echo $brandss->brand_name;
 
 
-
-if ($hoi == null) {
+if ($ideetje == null) {
     header("Location: admin.php");
     exit;
 }
@@ -34,24 +35,18 @@ if ($hoi == null) {
 
 
 
-
+$hoi = $ideetje;
 
 
     if (isset($_POST["name"])) {
         
 
-        $newset = new Sets();
-        $newset->setName = $_POST["name"];
-        $newset->setDescription = $_POST["description"];
-        $newset->setBrandId = (int)$_POST["Brand"];
-        $newset->setThemeId = (int)$_POST["theme"];
-        $newset->setImage = $image;
-        $newset->setPrice = (int)$_POST["price"];
-        $newset->setAge = (int)$_POST["age"];
-        $newset->steentjes = (int)$_POST["steentjes"];
-        $newset->setStock = (int)$_POST["Stock"];
-        $newset->aanpas($hoi);
-        header("Location: home?message=Item is aangepast :D");
+        $newbrand = new Brands();
+        $newbrand->brand_name = $_POST["name"];
+        $newbrand->brand_logo = $image;
+
+        $newbrand->aanpas($hoi);
+        header("Location: ../home.php?message=Item is aangepast :D");
         
         exit;
     }
@@ -86,7 +81,7 @@ if ($hoi == null) {
                     <br>
                     <form  method="post" enctype="multipart/form-data">>
                     <a class="letters">Brand naam:</a> <br />
-                        <input type="text" name="name" value="<?= $set->setName ?> " /><br />
+                        <input type="text" name="name" value="<?= $brandss->brand_name ?> " /><br />
                         <br>
 
 

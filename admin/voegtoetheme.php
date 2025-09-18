@@ -47,7 +47,7 @@
 
                         <br>
                         <form  method="post" enctype="multipart/form-data">>
-                        <a class="letters">Set naam:</a> <br />
+                        <a class="letters">Theme naam:</a> <br />
                             <input type="text" name="name" value="" /><br />
                             <br>
 

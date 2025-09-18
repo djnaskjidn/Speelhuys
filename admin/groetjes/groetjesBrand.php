@@ -39,14 +39,14 @@ else
 
 
 
-    $hoi = $_GET["id"];
-    $set = Sets::hallo($hoi);
+    $ideetje = $_GET["id"];
+    $brandss = Brands::ideetjepakken($ideetje);
 
     
 
 
 
-    if ($hoi == null) {
+    if ($ideetje == null) {
         header("Location: ./home.php");
         exit;
     }
@@ -103,15 +103,15 @@ else
 
 <?php
 $id =0;
-$id = $set->setId;
+$id = $brandss->brand_id;
 
-if(!$set)
+if(!$brandss)
 {
 
 }
 else
 {
-$set->doei($id); // verwijderd
+$brandss->doei($id); // verwijderd
 header("location: ../home.php?message= verwijderd denk ik");
 }
 

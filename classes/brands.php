@@ -35,7 +35,7 @@ class Brands
     }
 
 
- public static function ideetjepakken($ideetje)
+ public static function  ideetjepakken($ideetje)
     {
         $conn = Database::start();
 
@@ -69,8 +69,8 @@ class Brands
             $conn = Database::start(); // start de database
     
             $id = mysqli_real_escape_string($conn, $hoi); // veiligheid
-            $name = mysqli_real_escape_string($conn, $this->brandname); // veiligheid
-            $logo = mysqli_real_escape_string($conn, $this->brandlogo);// veiligheid
+            $name = mysqli_real_escape_string($conn, $this->brand_name); // veiligheid
+            $logo = mysqli_real_escape_string($conn, $this->brand_logo);// veiligheid
 
     
     
@@ -122,7 +122,26 @@ class Brands
         }
 
 
-
+        public function doei($id) // deze zorgt dat de blog permanent verwijderd word 👍
+        {
+            $conn = Database::start(); // start de database
+    
+            $sql = "
+    
+            DELETE FROM 
+            brands
+            WHERE 
+                brand_id = " . $id . "
+                
+            ";
+    
+    
+            $conn->query($sql);// sluit de verbinding
+    
+            $conn->close();
+        
+        
+        }
 
 
 
