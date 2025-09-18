@@ -37,9 +37,9 @@ if ($geenIdee == 1) {
   $hamburger = $geenIdee * 10 - 10;
 }
 
-
+// afronden om merk filter te laten werken.
 if ($set <= 10) {
-  
+
 }
 
 
