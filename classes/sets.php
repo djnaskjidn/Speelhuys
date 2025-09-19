@@ -101,8 +101,161 @@ class Sets
             return $setss;
         }
 
+    }
+
+        //weer filter gedoe
+        public static function nee($hamburger, $ja)
+    {
+        
+        $conn = Database::start();
+
+        // voorbeeld
+        $query = "SELECT * FROM sets WHERE set_brand_id = $ja LIMIT 10 OFFSET $hamburger";
+        $resultaat = $conn->query($query);
+
+        $setss =[];
+
+        if ($resultaat->num_rows > 0) 
+        {
+            while ($row = $resultaat->fetch_assoc()) 
+            {
+                $set = new Sets();
+
+                $set->setId = $row['set_id'];
+                $set->setName = $row['set_name'];
+                $set->setDescription = $row['set_description'];
+                $set->setBrandId = $row['set_brand_id'];
+                $set->setThemeId = $row['set_theme_id'];
+                $set->setImage = $row['set_image'];
+                $set->setPrice = $row['set_price'];
+                $set->setAge = $row['set_age'];
+                $set->steentjes = $row['set_pieces'];
+                $set->setStock = $row['set_stock'];
+                
+                $setss[] = $set;
+            }
+            $conn->close(); // sluit de verbinding
+
+            return $setss;
+        }
+
+    }
 
 
+
+
+
+    public static function wel($hamburger, $kaas)
+    {
+        
+        $conn = Database::start();
+
+        // voorbeeld
+        $query = "SELECT * FROM sets WHERE set_theme_id = $kaas LIMIT 10 OFFSET $hamburger";
+        $resultaat = $conn->query($query);
+
+        $setss =[];
+
+        if ($resultaat->num_rows > 0) 
+        {
+            while ($row = $resultaat->fetch_assoc()) 
+            {
+                $set = new Sets();
+
+                $set->setId = $row['set_id'];
+                $set->setName = $row['set_name'];
+                $set->setDescription = $row['set_description'];
+                $set->setBrandId = $row['set_brand_id'];
+                $set->setThemeId = $row['set_theme_id'];
+                $set->setImage = $row['set_image'];
+                $set->setPrice = $row['set_price'];
+                $set->setAge = $row['set_age'];
+                $set->steentjes = $row['set_pieces'];
+                $set->setStock = $row['set_stock'];
+                
+                $setss[] = $set;
+            }
+            $conn->close(); // sluit de verbinding
+
+            return $setss;
+        }
+    
+
+    }
+
+    public static function leeftijd($hamburger, $kaas)
+    {
+        
+        $conn = Database::start();
+
+        // voorbeeld
+        $query = "SELECT * FROM sets WHERE set_age <= $kaas LIMIT 10 OFFSET $hamburger";
+        $resultaat = $conn->query($query);
+
+        $setss =[];
+
+        if ($resultaat->num_rows > 0) 
+        {
+            while ($row = $resultaat->fetch_assoc()) 
+            {
+                $set = new Sets();
+
+                $set->setId = $row['set_id'];
+                $set->setName = $row['set_name'];
+                $set->setDescription = $row['set_description'];
+                $set->setBrandId = $row['set_brand_id'];
+                $set->setThemeId = $row['set_theme_id'];
+                $set->setImage = $row['set_image'];
+                $set->setPrice = $row['set_price'];
+                $set->setAge = $row['set_age'];
+                $set->steentjes = $row['set_pieces'];
+                $set->setStock = $row['set_stock'];
+                
+                $setss[] = $set;
+            }
+            $conn->close(); // sluit de verbinding
+
+            return $setss;
+        }
+    
+
+    }
+
+    public static function steen($hamburger, $steen)
+    {
+        
+        $conn = Database::start();
+
+        // voorbeeld
+        $query = "SELECT * FROM sets WHERE set_pieces <= $steen LIMIT 10 OFFSET $hamburger";
+        $resultaat = $conn->query($query);
+
+        $setss =[];
+
+        if ($resultaat->num_rows > 0) 
+        {
+            while ($row = $resultaat->fetch_assoc()) 
+            {
+                $set = new Sets();
+
+                $set->setId = $row['set_id'];
+                $set->setName = $row['set_name'];
+                $set->setDescription = $row['set_description'];
+                $set->setBrandId = $row['set_brand_id'];
+                $set->setThemeId = $row['set_theme_id'];
+                $set->setImage = $row['set_image'];
+                $set->setPrice = $row['set_price'];
+                $set->setAge = $row['set_age'];
+                $set->steentjes = $row['set_pieces'];
+                $set->setStock = $row['set_stock'];
+                
+                $setss[] = $set;
+            }
+            $conn->close(); // sluit de verbinding
+
+            return $setss;
+        }
+    
 
     }
 

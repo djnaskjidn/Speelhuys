@@ -41,13 +41,102 @@ if ($geenIdee == 1) {
 
 // afronden om merk filter te laten werken.
 
+//brand filter gedoe
+if (isset($_GET["brandid"])) {
+    $ja = $_GET["brandid"];
+
+    $sets = Sets::wel($hamburger, $ja);
+    if (!$sets)
+    {
+        $ventilator = false;
+    }
+    else
+    {
+        $ventilator = true;
+    }
+    
+  } else {
+    //niks
+  }
+
+  //theme
+  if (isset($_GET["themeid"])) {
+    $kaas = $_GET["themeid"];
+
+    $sets = Sets::wel($hamburger, $kaas);
+    if (!$sets)
+    {
+        $ventilator = false;
+    }
+    else
+    {
+        $ventilator = true;
+    }
+    
+  } else {
+    //niks
+  }
+
+
+  //leeftijd
+  if (isset($_GET["lf"])) {
+    $kaas = $_GET["lf"];
+
+    $sets = Sets::leeftijd($hamburger, $kaas);
+    if (!$sets)
+    {
+        $ventilator = false;
+    }
+    else
+    {
+        $ventilator = true;
+    }
+    
+  } else {
+    //niks
+  }
+
+/// steentjes
+  if (isset($_GET["steentjes"])) {
+    $steen = $_GET["steentjes"];
+    
+    $sets = Sets::steen($hamburger, $steen);
+
+    if (!$sets)
+    {
+        $ventilator = false;
+    }
+    else
+    {
+        $ventilator = true;
+    }
+    
+  } else {
+    //niks
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 $ietss = Sets::hoi($hamburger);
 
 $brands = Brands::brandsLatenZienInDeIndex();
 $themes = Themes::allethemeslatenzien();
-$sets = Sets::setsLatenZienInDeIndex();
+
 
 ?>
 
@@ -69,8 +158,20 @@ $sets = Sets::setsLatenZienInDeIndex();
 
 <body id="body">
 
-  <!-- Filter button -->
+  <!-- Top button -->
   <div class="container my-3">
+    <div class="row">
+      <div class="col text-center">
+        <div class="d-grid gap-3">
+          <p>hoi</p>
+          <a href="index.php" class="btn btn-primary btn-lg w-100">Keer terug naar overzicht</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Filter offcanvas -->
+  <div class="container mb-3">
     <div class="row">
       <div class="col text-center">
         <a id="button" class="btn btn-primary" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
@@ -80,10 +181,9 @@ $sets = Sets::setsLatenZienInDeIndex();
     </div>
   </div>
 
-  <!-- Offcanvas filters -->
   <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="select">
     <div class="offcanvas-header">
-      <h5 class="offcanvas-title" id="select">Selecteer jouw keuzen</h5>
+      <h5 class="offcanvas-title">Selecteer jouw keuzen</h5>
       <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body">
@@ -104,6 +204,16 @@ $sets = Sets::setsLatenZienInDeIndex();
         <ul class="dropdown-menu w-100">
           <?php foreach ($themes as $theme): ?>
             <li><a class="dropdown-item" href="filter.php?themeid=<?= $theme->theme_id ?>"><?= $theme->theme_name ?></a></li>
+          <?php endforeach; ?>
+        </ul>
+      </div>
+
+      <!-- Sets -->
+      <div class="dropdown mb-3">
+        <button class="btn btn-secondary dropdown-toggle w-100" type="button" data-bs-toggle="dropdown">Sets</button>
+        <ul class="dropdown-menu w-100">
+          <?php foreach ($sets as $set): ?>
+            <li><a class="dropdown-item" href="index.php?id=<?= $set->setBrandId ?>"><?= $set->setName ?></a></li>
           <?php endforeach; ?>
         </ul>
       </div>
@@ -136,19 +246,25 @@ $sets = Sets::setsLatenZienInDeIndex();
   <!-- Sets cards -->
   <div class="container my-4">
     <div class="row justify-content-center">
-      <?php foreach ($ietss as $set): ?>
-        <div class="col-md-3 col-sm-6 mb-4 d-flex">
-          <a href="detail.php?id=<?= $set->setId ?>" class="w-100">
-            <div class="card h-100 d-flex flex-column">
-              <img src="images/sets/<?= $set->setImage ?>" class="card-img-top img-fluid" alt="geen foto" style="max-height: 250px; object-fit: cover;" onerror="this.src='./images/sets/stock.ong';">
-              <div class="card-body d-flex flex-column">
-                <p class="card-text flex-grow-1"><?= $set->setName ?></p>
-                <p class="card-text flex-grow-1">€<?= $set->setPrice ?></p>
+      <?php if ($ventilator): ?>
+        <?php foreach ($sets as $set): ?>
+          <div class="col-md-3 col-sm-6 mb-4 d-flex">
+            <a href="detail.php?id=<?= $set->setId ?>" class="w-100">
+              <div class="card h-100 d-flex flex-column">
+                <img src="images/sets/<?= $set->setImage ?>" class="card-img-top img-fluid" alt="geen foto" style="max-height: 250px; object-fit: cover;" onerror="this.src='./images/sets/stock.ong';">
+                <div class="card-body d-flex flex-column">
+                  <p class="card-text flex-grow-1"><?= $set->setName ?></p>
+                  <p class="card-text flex-grow-1">€<?= $set->setPrice ?></p>
+                </div>
               </div>
-            </div>
-          </a>
+            </a>
+          </div>
+        <?php endforeach; ?>
+      <?php else: ?>
+        <div class="col text-center">
+          <h1>Niet gevonden</h1>
         </div>
-      <?php endforeach; ?>
+      <?php endif; ?>
     </div>
   </div>
 

@@ -13,14 +13,23 @@ $hoi = $_GET["id"];
 $setje = Sets::hallo($hoi);
 
 
-echo $hoi;
-
-
-$brand = Brands::ideetjepakken($setje->setBrandId);
 
 
 
-echo $setje->setBrandId;
+
+
+
+$dasomd = $setje->setBrandId;
+
+if (!$dasomd)
+{
+  $dasomd = 0;
+}
+else{
+
+  $brand = Brands::ideetjepakken($setje->setBrandId);
+}
+
 $Mo = $setje->setThemeId;
 if (!$Mo)
   {
@@ -86,7 +95,24 @@ $themes = Themes::themeslatenzien($Mo);
 
 
 
-       <h1> <?= "Merk: " . $brand->brand_name; ?> </h1>
+       
+
+
+       <h1> <?php if ($dasomd == 0)
+       {
+        echo "Geen merk";
+       } 
+       else
+       {
+        echo "Merk: " .  $brand->brand_name; 
+       }
+       
+
+
+       ?> </h1>
+
+      
+
        <h2> <?php if ($Mo == 0)
        {
         echo "Geen thema";
